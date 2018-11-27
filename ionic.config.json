@@ -1,5 +1,7 @@
 {
   "name": "venkr",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

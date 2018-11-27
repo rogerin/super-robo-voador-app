@@ -1,18 +1,45 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title> <img src="assets/icon/icon.png" style="width: 20px; height: 20px; position: relative;">  VenKr</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
+  <ion-row class="mapSize">  
+    <div id="map" #map></div>
+  </ion-row>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <!-- <ion-grid >
+    <ion-row>
+      <ion-col >
+        <ion-list no-lines>
+          <ion-item *ngIf="inZone">Você está em zona</ion-item>
+          <ion-item *ngIf="!inZone">Não está em zona</ion-item>
+        </ion-list>
+        <ion-col *ngIf="atual">
+            <ion-item> distancia {{atual.distance}} </ion-item> 
+        </ion-col>
+        <ion-col *ngIf="atual">
+            <ion-item> radius {{atual.radius}} </ion-item> 
+        </ion-col>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+
+    
 </ion-content>
+
+<ion-footer>
+
+    <ion-toolbar color="primary">
+      <button *ngIf="atual" large ion-button block icon-start (click)="generateRoute()">
+          <ion-icon name="pin"></ion-icon>
+          Achar melhor vaga
+        </button>
+    </ion-toolbar>
+ 
+</ion-footer>

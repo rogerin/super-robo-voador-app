@@ -4,31 +4,48 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { ZonaProvider } from '../providers/zona/zona';
+
+import { IonicStorageModule } from '@ionic/storage';
+
+
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+
+import { DirectionPageModule } from '../pages/direction/direction.module'
+import { FavoriteParkingPageModule } from '../pages/favorite-parking/favorite-parking.module'
+import { HistoricPageModule } from '../pages/historic/historic.module'
+
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage
+    HomePage
   ],
   imports: [
+    HttpClientModule,
+    HttpModule,
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    DirectionPageModule,
+    HistoricPageModule,
+    FavoriteParkingPageModule,
+    IonicModule.forRoot(MyApp, { backButtonText: 'Voltar' }),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage
+    HomePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ZonaProvider
   ]
 })
 export class AppModule {}

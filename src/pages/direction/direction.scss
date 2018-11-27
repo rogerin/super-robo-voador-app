@@ -1,0 +1,14 @@
+page-direction {
+    .mapSize {
+        // height: 70%;
+        //background: #000;
+    }
+
+    #map {
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+}
